@@ -1,0 +1,49 @@
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# NPM & Yarn
+node_modules/
+yarn-error.log
+package-lock.json
+webpack-config.json
+storybook-static
+
+# Serverless
+.env
+
+# Sbt
+.g8/
+project/project
+project/target
+target
+
+# Frontend
+*-fe/build
+!mobile-fe/build/
+
+# Log
+log/
+
+# Docs
+~*.doc
+~*.docx
+~*.xls
+~*.xlsx
+
+# Evolutions
+*/conf/evolutions/
+
+build/
+
+.history/
+
+# e2e test
+e2e-test/snapshots
+e2e-test/jest-stare
+e2e-test/junit.xml
+
+# coverage
+coverage/
