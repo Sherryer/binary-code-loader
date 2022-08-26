@@ -1,5 +1,5 @@
 # binary-code-loader
-transform file to Uint8Array.buffer
+build file to base64，transform base64 file to Uint8Array.buffer in runtime
 
 ## install
 ```js

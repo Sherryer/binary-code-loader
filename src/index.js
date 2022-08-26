@@ -15,7 +15,7 @@ function shouldTransform(limit, size) {
 
 function transform (data) {
   const isBrowser = typeof window !== 'undefined' && typeof window.atob === 'function';
-  const base64 = isBrowser ? window.atob(data) : Buffer.from(data, 'base64').toString('binary')
+  const base64 = (atob || isBrowser) ? (atob(data) || window.atob(data)) : Buffer.from(data, 'base64').toString('binary')
   const bytes = new Uint8Array(base64.length);
 
   for (let i = 0; i < base64.length; i++) {
@@ -32,6 +32,7 @@ module.exports = function (content) {
   const options = loaderUtils.getOptions(this) || {};
 
   if (shouldTransform(options.limit, content.length)) {
+    // 把文件转成 base 64 打包到项目，运行时把 base 转到内存
     return `module.exports = ${transform}('${content.toString('base64')}')`;
   }
 
